@@ -289,4 +289,119 @@ button {
 button:hover { filter: brightness(1.05); }
 button:disabled { opacity: 0.6; cursor: not-allowed; }
 
+/* Botões utilitários (para <a> ou <button>) */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.6rem 0.9rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid transparent;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.btn--primary { background: var(--color-primary); color: #fff; }
+.btn--primary:hover { filter: brightness(1.05); }
+
+.btn--outline {
+  background: transparent;
+  color: var(--color-text);
+  border-color: var(--color-border);
+}
+
+/* Hero */
+.hero {
+  display: grid;
+  gap: var(--space-xl);
+}
+
+@media (min-width: 768px) {
+  .hero {
+    grid-template-columns: 1.4fr 1fr;
+    align-items: start;
+  }
+}
+
+.hero .hero-media {
+  background: var(--color-surface-2);
+  border: 1px dashed var(--color-border);
+  border-radius: var(--radius-lg);
+  min-height: 220px;
+}
+
+/* Categorias Populares */
+.category-cards {
+  display: grid;
+  gap: var(--space-lg);
+}
+
+@media (min-width: 768px) {
+  .category-cards {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.category-card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 16px;
+  padding: var(--space-lg);
+  min-height: 110px;
+  display: flex;
+  align-items: flex-end;
+  font-weight: 600;
+}
+
+/* Chips */
+.chips { display: flex; flex-wrap: wrap; gap: var(--space-md); }
+.chip {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.5rem 0.9rem;
+  border-radius: 999px;
+  border: 1px solid var(--color-border);
+  background: transparent;
+  color: var(--color-text);
+}
+
+/* Lista sem marcadores */
+.list-unstyled { list-style: none; margin: 0; padding: 0; }
+.muted { color: var(--color-text-muted); }
+
+/* Post cards */
+.post-list { display: grid; gap: var(--space-md); }
+.post-card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-md);
+  display: grid;
+  grid-template-columns: 88px 1fr;
+  gap: var(--space-md);
+}
+
+.post-card .thumb {
+  background: var(--color-surface-2);
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  width: 88px; height: 64px;
+}
+
+.post-card h3 { margin: 0 0 var(--space-xs); font-size: 1.1rem; }
+.post-meta { font-size: var(--fs-small); }
+
+/* Seção em duas colunas (lista + aside) */
+.two-col {
+  display: grid;
+  gap: var(--space-xl);
+}
+
+@media (min-width: 1024px) {
+  .two-col {
+    grid-template-columns: 1.6fr 1fr;
+  }
+}
+
 
