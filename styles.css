@@ -161,6 +161,23 @@ footer.site-footer {
   color: var(--color-text-muted);
 }
 
+/* Ações do header (busca e botões) */
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.search-input {
+  width: 220px;
+  max-width: 42vw;
+}
+
+@media (max-width: 480px) {
+  .search-input { width: 140px; }
+  nav.primary-nav ul { gap: var(--space-sm); }
+}
+
 /* Cartões de preview na home */
 .cards {
   grid-template-columns: repeat(2, 1fr);
