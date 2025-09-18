@@ -1,0 +1,292 @@
+/*
+  CSS base do projeto
+  - Mobile-first
+  - Variáveis de cor, tipografia e espaçamento
+  - Acessibilidade: foco visível, skip-link, contraste
+*/
+
+:root {
+  /* Cores (paleta livre) */
+  --color-bg: #0f172a;            /* slate-900 */
+  --color-surface: #111827;       /* gray-900 */
+  --color-surface-2: #1f2937;     /* gray-800 */
+  --color-border: #334155;        /* slate-700 */
+  --color-text: #e5e7eb;          /* gray-200 */
+  --color-text-muted: #94a3b8;    /* slate-400 */
+  --color-primary: #22c55e;       /* green-500 */
+  --color-primary-contrast: #001b07;
+
+  /* Tipografia */
+  --font-sans: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+  --line-height: 1.6;
+
+  /* Escala tipográfica */
+  --fs-h1: 2.5rem;
+  --fs-h2: 2rem;
+  --fs-h3: 1.5rem;
+  --fs-body: 1rem;
+  --fs-small: 0.875rem;
+
+  /* Espaçamentos */
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+
+  /* Outros tokens */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --shadow-sm: 0 1px 2px rgba(0,0,0,0.2);
+  --shadow-md: 0 6px 16px rgba(0,0,0,0.25);
+}
+
+/* Reset/normalização leve */
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  font-size: var(--fs-body);
+  line-height: var(--line-height);
+  color: var(--color-text);
+  background-color: var(--color-bg);
+}
+
+img, svg, video {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Links */
+a {
+  color: var(--color-primary);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Foco visível */
+:where(a, button, input, select, textarea, [tabindex]) :focus,
+:where(a, button, input, select, textarea, [tabindex]):focus {
+  outline: 3px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+/* Utilidades de layout */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-left: var(--space-md);
+  padding-right: var(--space-md);
+}
+
+.stack-sm > * + * { margin-top: var(--space-sm); }
+.stack-md > * + * { margin-top: var(--space-md); }
+.stack-lg > * + * { margin-top: var(--space-lg); }
+
+.cluster {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-md);
+  align-items: center;
+}
+
+.center {
+  display: grid;
+  place-items: center;
+}
+
+.grid {
+  display: grid;
+  gap: var(--space-lg);
+}
+
+/* Header, Nav e Footer */
+header.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: linear-gradient(180deg, var(--color-surface), transparent);
+  border-bottom: 1px solid var(--color-border);
+  backdrop-filter: blur(6px);
+}
+
+.site-header .inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-md) 0;
+}
+
+.brand {
+  font-size: 1.125rem;
+  font-weight: 700;
+}
+
+nav.primary-nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: var(--space-md);
+}
+
+nav.primary-nav a {
+  color: var(--color-text);
+  padding: 0.4rem 0.6rem;
+  border-radius: var(--radius-sm);
+}
+
+nav.primary-nav a:focus,
+nav.primary-nav a:hover {
+  background: var(--color-surface-2);
+  text-decoration: none;
+}
+
+footer.site-footer {
+  border-top: 1px solid var(--color-border);
+  padding: var(--space-lg) 0;
+  color: var(--color-text-muted);
+}
+
+/* Cartões de preview na home */
+.cards {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+@media (min-width: 480px) {
+  .cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 768px) {
+  .cards {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .cards {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.card {
+  background: var(--color-surface-2);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  overflow: hidden;
+  transition: transform 120ms ease, box-shadow 120ms ease;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.card a {
+  display: block;
+  color: inherit;
+}
+
+.card figure {
+  margin: 0;
+}
+
+.card figcaption {
+  padding: var(--space-md);
+  border-top: 1px solid var(--color-border);
+}
+
+/* Tipografia */
+h1 { font-size: var(--fs-h1); margin: 0 0 var(--space-md); }
+h2 { font-size: var(--fs-h2); margin: 0 0 var(--space-md); }
+h3 { font-size: var(--fs-h3); margin: 0 0 var(--space-sm); }
+p  { margin: 0 0 var(--space-md); }
+small { font-size: var(--fs-small); }
+
+/* Seções padrão */
+section.section {
+  padding: var(--space-xl) 0;
+}
+
+.surface {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-lg);
+}
+
+/* Skip link (pular para conteúdo) */
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+.skip-link:focus {
+  position: static;
+  width: auto;
+  height: auto;
+  margin: var(--space-sm);
+  padding: var(--space-sm) var(--space-md);
+  background: var(--color-primary);
+  color: #fff;
+  border-radius: var(--radius-sm);
+}
+
+/* Visually hidden (para textos auxiliares) */
+.visually-hidden {
+  position: absolute !important;
+  height: 1px; width: 1px;
+  overflow: hidden;
+  clip: rect(1px, 1px, 1px, 1px);
+  white-space: nowrap;
+}
+
+/* Formulários (base) */
+label { display: inline-block; margin-bottom: var(--space-xs); }
+input, select, textarea, button {
+  font: inherit;
+  color: inherit;
+}
+
+input, select, textarea {
+  width: 100%;
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  color: var(--color-text);
+  border-radius: var(--radius-sm);
+  padding: 0.6rem 0.75rem;
+}
+
+button {
+  background: var(--color-primary);
+  color: #fff;
+  border: none;
+  border-radius: var(--radius-sm);
+  padding: 0.6rem 0.9rem;
+  cursor: pointer;
+}
+
+button:hover { filter: brightness(1.05); }
+button:disabled { opacity: 0.6; cursor: not-allowed; }
+
+
