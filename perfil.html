@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Perfil - HABITAT</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./styles.css" />
+  <meta name="color-scheme" content="dark light">
+</head>
+<body>
+  <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+
+  <header class="site-header">
+    <div class="container inner">
+      <div class="brand">HABITAT</div>
+      <nav class="primary-nav" aria-label="Navegação principal">
+        <ul>
+          <li><a href="index.html">Início</a></li>
+          <li><a href="navegacao.html">Páginas</a></li>
+          <li><a href="destaques.html">Destaques</a></li>
+          <li><a href="newsletter.html">Assinar</a></li>
+          <li><a href="admin.html">Admin</a></li>
+        </ul>
+      </nav>
+      <div class="header-actions">
+        <input class="search-input" type="search" placeholder="Buscar..." aria-label="Buscar" />
+        <a class="btn btn--outline" href="#buscar">Buscar</a>
+        <a class="btn btn--outline" href="login.html">Entrar</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="conteudo" class="container section">
+    <div class="two-col">
+      <aside class="surface">
+        <h2>Perfil</h2>
+        <div class="thumb-lg" style="margin-bottom: var(--space-lg); height: 120px;" aria-hidden="true"></div>
+        <form>
+          <div class="form-group">
+            <label for="nome">Nome</label>
+            <input type="text" id="nome" name="nome" />
+          </div>
+          <div class="form-group">
+            <label for="bio">Bio</label>
+            <textarea id="bio" name="bio" rows="3"></textarea>
+          </div>
+          <button type="submit" class="btn btn--primary">Salvar</button>
+        </form>
+      </aside>
+
+      <div>
+        <h2>Suas Postagens</h2>
+        <div class="post-list">
+          <article class="post-card">
+            <div class="thumb" aria-hidden="true"></div>
+            <div>
+              <div class="post-meta muted">Rascunho</div>
+              <h3>Post 1</h3>
+            </div>
+          </article>
+          <article class="post-card">
+            <div class="thumb" aria-hidden="true"></div>
+            <div>
+              <div class="post-meta muted">Publicado</div>
+              <h3>Post 2</h3>
+            </div>
+          </article>
+          <article class="post-card">
+            <div class="thumb" aria-hidden="true"></div>
+            <div>
+              <div class="post-meta muted">Em análise</div>
+              <h3>Comentário 1</h3>
+            </div>
+          </article>
+          <article class="post-card">
+            <div class="thumb" aria-hidden="true"></div>
+            <div>
+              <div class="post-meta muted">Publicado</div>
+              <h3>Comentário 2</h3>
+            </div>
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <section class="section">
+      <div class="chips">
+        <span class="chip">Instagram</span>
+        <span class="chip">Work</span>
+        <span class="chip">Bags</span>
+        <span class="chip">Lamp</span>
+        <span class="chip">Books</span>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <small>© 2025 Meu Site • Meu site</small>
+    </div>
+  </footer>
+</body>
+</html>
