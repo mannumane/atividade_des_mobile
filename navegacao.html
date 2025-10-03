@@ -6,6 +6,7 @@
   <title>Navegação - Todas as Páginas</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" href="./assets/page1.png" as="image">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./styles.css" />
   <meta name="color-scheme" content="dark light">
@@ -29,7 +30,7 @@
       <div class="header-actions">
         <input class="search-input" type="search" placeholder="Buscar..." aria-label="Buscar" />
         <a class="btn btn--outline" href="#buscar">Buscar</a>
-        <a class="btn btn--outline" href="#entrar">Entrar</a>
+        <a class="btn btn--outline" href="login.html">Entrar</a>
       </div>
     </div>
   </header>
@@ -43,27 +44,37 @@
     <section id="telas" class="section surface">
       <h2 class="visually-hidden">Lista de telas</h2>
       <div class="grid cards">
-        <article class="card"><a href="home-page.html"><figure><img src="./assets/page1.png" alt="Prévia da home" loading="lazy"><figcaption>Home</figcaption></figure></a></article>
-        <article class="card"><a href="categoria-techno.html"><figure><img src="./assets/page2.png" alt="Prévia da categoria Techno" loading="lazy"><figcaption>Categoria Techno</figcaption></figure></a></article>
-        <article class="card"><a href="destaques.html"><figure><img src="./assets/page3.png" alt="Prévia dos destaques" loading="lazy"><figcaption>Destaques</figcaption></figure></a></article>
-        <article class="card"><a href="admin.html"><figure><img src="./assets/page4.png" alt="Prévia do admin" loading="lazy"><figcaption>Admin Dashboard</figcaption></figure></a></article>
-        <article class="card"><a href="escolhas-editor.html"><figure><img src="./assets/page5.png" alt="Prévia das escolhas do editor" loading="lazy"><figcaption>Escolhas do Editor</figcaption></figure></a></article>
-        <article class="card"><a href="categorias.html"><figure><img src="./assets/page6.png" alt="Prévia das categorias" loading="lazy"><figcaption>Categorias</figcaption></figure></a></article>
-        <article class="card"><a href="criar-post.html"><figure><img src="./assets/page7.png" alt="Prévia do criar post" loading="lazy"><figcaption>Criar Post</figcaption></figure></a></article>
-        <article class="card"><a href="newsletter.html"><figure><img src="./assets/page8.png" alt="Prévia da newsletter" loading="lazy"><figcaption>Newsletter</figcaption></figure></a></article>
-        <article class="card"><a href="signup.html"><figure><img src="./assets/page9.png" alt="Prévia do cadastro" loading="lazy"><figcaption>Criar Conta</figcaption></figure></a></article>
-        <article class="card"><a href="login.html"><figure><img src="./assets/page10.png" alt="Prévia do login" loading="lazy"><figcaption>Entrar</figcaption></figure></a></article>
-        <article class="card"><a href="fila-revisao.html"><figure><img src="./assets/page11.png" alt="Prévia da fila de revisão" loading="lazy"><figcaption>Fila de Revisão</figcaption></figure></a></article>
-        <article class="card"><a href="fila-comentarios.html"><figure><img src="./assets/page12.png" alt="Prévia da fila de comentários" loading="lazy"><figcaption>Fila de Comentários</figcaption></figure></a></article>
-        <article class="card"><a href="usuarios.html"><figure><img src="./assets/page13.png" alt="Prévia dos usuários" loading="lazy"><figcaption>Usuários</figcaption></figure></a></article>
-        <article class="card"><a href="perfil.html"><figure><img src="./assets/page14.png" alt="Prévia do perfil" loading="lazy"><figcaption>Perfil</figcaption></figure></a></article>
-        <article class="card"><a href="busca.html"><figure><img src="./assets/page14.png" alt="Prévia da busca" loading="lazy"><figcaption>Busca</figcaption></figure></a></article>
+        <article class="card"><a href="home-page.html"><figure><img src="./assets/page1.png" alt="Prévia da home" width="300" height="400"><figcaption>Home</figcaption></figure></a></article>
+        <article class="card"><a href="categoria-techno.html"><figure><img src="./assets/page2.png" alt="Prévia da categoria Techno" width="300" height="400" loading="lazy"><figcaption>Categoria Techno</figcaption></figure></a></article>
+        <article class="card"><a href="destaques.html"><figure><img src="./assets/page3.png" alt="Prévia dos destaques" width="300" height="400" loading="lazy"><figcaption>Destaques</figcaption></figure></a></article>
+        <article class="card"><a href="admin.html"><figure><img src="./assets/page4.png" alt="Prévia do admin" width="300" height="400" loading="lazy"><figcaption>Admin Dashboard</figcaption></figure></a></article>
+        <article class="card"><a href="escolhas-editor.html"><figure><img src="./assets/page5.png" alt="Prévia das escolhas do editor" width="300" height="400" loading="lazy"><figcaption>Escolhas do Editor</figcaption></figure></a></article>
+        <article class="card"><a href="categorias.html"><figure><img src="./assets/page6.png" alt="Prévia das categorias" width="300" height="400" loading="lazy"><figcaption>Categorias</figcaption></figure></a></article>
+        <article class="card"><a href="criar-post.html"><figure><img src="./assets/page7.png" alt="Prévia do criar post" width="300" height="400" loading="lazy"><figcaption>Criar Post</figcaption></figure></a></article>
+        <article class="card"><a href="newsletter.html"><figure><img src="./assets/page8.png" alt="Prévia da newsletter" width="300" height="400" loading="lazy"><figcaption>Newsletter</figcaption></figure></a></article>
+        <article class="card"><a href="signup.html"><figure><img src="./assets/page9.png" alt="Prévia do cadastro" width="300" height="400" loading="lazy"><figcaption>Criar Conta</figcaption></figure></a></article>
+        <article class="card"><a href="login.html"><figure><img src="./assets/page10.png" alt="Prévia do login" width="300" height="400" loading="lazy"><figcaption>Entrar</figcaption></figure></a></article>
+        <article class="card"><a href="fila-revisao.html"><figure><img src="./assets/page11.png" alt="Prévia da fila de revisão" width="300" height="400" loading="lazy"><figcaption>Fila de Revisão</figcaption></figure></a></article>
+        <article class="card"><a href="fila-comentarios.html"><figure><img src="./assets/page12.png" alt="Prévia da fila de comentários" width="300" height="400" loading="lazy"><figcaption>Fila de Comentários</figcaption></figure></a></article>
+        <article class="card"><a href="usuarios.html"><figure><img src="./assets/page13.png" alt="Prévia dos usuários" width="300" height="400" loading="lazy"><figcaption>Usuários</figcaption></figure></a></article>
+        <article class="card"><a href="perfil.html"><figure><img src="./assets/page14.png" alt="Prévia do perfil" width="300" height="400" loading="lazy"><figcaption>Perfil</figcaption></figure></a></article>
+        <article class="card"><a href="busca.html"><figure><img src="./assets/page14.png" alt="Prévia da busca" width="300" height="400" loading="lazy"><figcaption>Busca</figcaption></figure></a></article>
       </div>
     </section>
 
     <section id="sobre" class="section">
       <h2>Sobre</h2>
       <p>Recriação fiel baseada nas imagens fornecidas. Estrutura semântica, responsiva e acessível.</p>
+    </section>
+
+    <section class="section">
+      <div class="chips">
+        <span class="chip">Instagram</span>
+        <span class="chip">Work</span>
+        <span class="chip">Bags</span>
+        <span class="chip">Lamp</span>
+        <span class="chip">Books</span>
+      </div>
     </section>
   </main>
 
@@ -74,4 +85,3 @@
   </footer>
 </body>
 </html>
-

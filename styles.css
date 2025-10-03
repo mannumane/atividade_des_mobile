@@ -47,7 +47,7 @@
   box-sizing: border-box;
 }
 
-html, body {
+html {
   height: 100%;
 }
 
@@ -58,6 +58,11 @@ body {
   line-height: var(--line-height);
   color: var(--color-text);
   background-color: var(--color-bg);
+  /* Layout de página: garante footer no fim da viewport */
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
 }
 
 img, svg, video {
@@ -92,6 +97,14 @@ a:hover {
   padding-right: var(--space-md);
 }
 
+/* Garante padding mínimo em mobile */
+@media (max-width: 768px) {
+  .container {
+    padding-left: var(--space-lg);
+    padding-right: var(--space-lg);
+  }
+}
+
 .stack-sm > * + * { margin-top: var(--space-sm); }
 .stack-md > * + * { margin-top: var(--space-md); }
 .stack-lg > * + * { margin-top: var(--space-lg); }
@@ -101,6 +114,13 @@ a:hover {
   flex-wrap: wrap;
   gap: var(--space-md);
   align-items: center;
+}
+
+@media (max-width: 640px) {
+  .cluster {
+    gap: var(--space-sm);
+    justify-content: center;
+  }
 }
 
 .center {
@@ -118,16 +138,26 @@ header.site-header {
   position: sticky;
   top: 0;
   z-index: 10;
-  background: linear-gradient(180deg, var(--color-surface), transparent);
+  /* Fundo sólido para não "sumir" ao rolar */
+  background: var(--color-surface);
   border-bottom: 1px solid var(--color-border);
   backdrop-filter: blur(6px);
+  /* Espaço para não grudar no conteúdo */
+  margin-bottom: var(--space-lg);
+  /* Padding lateral para evitar elementos grudados nas bordas */
+  padding-left: var(--space-md);
+  padding-right: var(--space-md);
+  flex-shrink: 0;
 }
 
 .site-header .inner {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: var(--space-md) 0;
+  padding: var(--space-md);
+  /* Responsividade: permite quebra de linha quando faltar espaço */
+  gap: var(--space-md);
+  flex-wrap: wrap;
 }
 
 .brand {
@@ -141,6 +171,7 @@ nav.primary-nav ul {
   padding: 0;
   display: flex;
   gap: var(--space-md);
+  flex-wrap: wrap;
 }
 
 nav.primary-nav a {
@@ -159,18 +190,50 @@ footer.site-footer {
   border-top: 1px solid var(--color-border);
   padding: var(--space-lg) 0;
   color: var(--color-text-muted);
+  flex-shrink: 0;
+  margin-top: auto;
 }
 
 /* Ações do header (busca e botões) */
 .header-actions {
   display: flex;
-  align-items: center;
-  gap: var(--space-sm);
+  align-items: stretch;
+  gap: 0;
+  flex-wrap: nowrap;
 }
 
-.search-input {
-  width: 220px;
-  max-width: 42vw;
+/* Grupo de busca: input + botão acoplados */
+.header-actions .search-input {
+  /* Largura fluida para diferentes viewports */
+  width: clamp(180px, 28vw, 280px);
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  border-right: none;
+}
+
+/* Botão "Buscar" acoplado ao input */
+.header-actions a[href="#buscar"] {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  white-space: nowrap;
+}
+
+/* Espaço consistente do botão Entrar (último botão do header) */
+.header-actions .btn:last-child {
+  margin-left: var(--space-md);
+}
+
+/* Main ocupa o espaço restante, empurrando o footer para baixo */
+main {
+  flex: 1 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Última seção (chips) sempre próxima ao footer */
+main > .section:last-child {
+  margin-top: auto;
+  padding-bottom: var(--space-md);
 }
 
 @media (max-width: 480px) {
@@ -178,9 +241,69 @@ footer.site-footer {
   nav.primary-nav ul { gap: var(--space-sm); }
 }
 
+/* Header em telas pequenas: centralização e proteção nas laterais */
+@media (max-width: 768px) {
+  .site-header .inner {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-areas: 
+      "brand"
+      "nav"
+      "actions";
+    justify-items: center;
+    gap: var(--space-md);
+    text-align: center;
+    position: relative;
+    padding: var(--space-md);
+  }
+  
+  .brand { 
+    grid-area: brand;
+    width: 100%;
+  }
+  
+  nav.primary-nav { 
+    grid-area: nav;
+    width: 100%; 
+  }
+  
+  nav.primary-nav ul { 
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  
+  .header-actions { 
+    grid-area: actions;
+    width: 100%;
+    justify-content: center;
+  }
+  
+  .header-actions .search-input { 
+    width: clamp(180px, 60vw, 320px);
+  }
+  
+  /* Fixar o botão Entrar no topo à direita, como no GitHub */
+  .header-actions .btn:last-child {
+    position: absolute;
+    top: var(--space-md);
+    right: var(--space-md);
+    margin-left: 0;
+    padding: 0.5rem 0.8rem;
+  }
+}
+
 /* Cartões de preview na home */
 .cards {
   grid-template-columns: repeat(2, 1fr);
+  padding: var(--space-md);
+}
+
+@media (max-width: 480px) {
+  .cards {
+    grid-template-columns: 1fr;
+    gap: var(--space-md);
+    padding: var(--space-sm);
+  }
 }
 
 @media (min-width: 480px) {
@@ -224,6 +347,13 @@ footer.site-footer {
   margin: 0;
 }
 
+.card figure img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 3/4;
+  object-fit: cover;
+}
+
 .card figcaption {
   padding: var(--space-md);
   border-top: 1px solid var(--color-border);
@@ -246,6 +376,13 @@ section.section {
   border: 1px solid var(--color-border);
   border-radius: var(--radius-md);
   padding: var(--space-lg);
+}
+
+/* Padding lateral para mobile */
+@media (max-width: 768px) {
+  .surface {
+    padding: var(--space-md);
+  }
 }
 
 /* Skip link (pular para conteúdo) */
@@ -348,6 +485,15 @@ button:disabled { opacity: 0.6; cursor: not-allowed; }
   min-height: 220px;
 }
 
+@media (max-width: 480px) {
+  .hero {
+    gap: var(--space-lg);
+  }
+  .hero .hero-media {
+    min-height: 180px;
+  }
+}
+
 /* Categorias Populares */
 .category-cards {
   display: grid;
@@ -372,7 +518,19 @@ button:disabled { opacity: 0.6; cursor: not-allowed; }
 }
 
 /* Chips */
-.chips { display: flex; flex-wrap: wrap; gap: var(--space-md); }
+.chips { 
+  display: flex; 
+  flex-wrap: wrap; 
+  gap: var(--space-md);
+}
+
+@media (max-width: 640px) {
+  .chips {
+    gap: var(--space-sm);
+    justify-content: center;
+  }
+}
+
 .chip {
   display: inline-flex;
   align-items: center;
@@ -472,6 +630,13 @@ button:disabled { opacity: 0.6; cursor: not-allowed; }
 .admin-layout {
   display: grid;
   gap: var(--space-xl);
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 768px) {
+  .admin-layout {
+    grid-template-columns: 220px 1fr;
+  }
 }
 
 @media (min-width: 1024px) {
@@ -490,6 +655,16 @@ button:disabled { opacity: 0.6; cursor: not-allowed; }
 .admin-sidebar h2 {
   font-size: 1.125rem;
   margin-bottom: var(--space-md);
+}
+
+/* Ocultar sidebar em mobile muito pequeno */
+@media (max-width: 480px) {
+  .admin-sidebar h2 {
+    font-size: 1rem;
+  }
+  .admin-sidebar {
+    padding: var(--space-md);
+  }
 }
 
 .admin-menu {
@@ -516,8 +691,15 @@ button:disabled { opacity: 0.6; cursor: not-allowed; }
 /* Métricas */
 .metrics {
   display: grid;
-  gap: var(--space-lg);
-  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: var(--space-md);
+  grid-template-columns: repeat(2, 1fr);
+}
+
+@media (min-width: 640px) {
+  .metrics {
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--space-lg);
+  }
 }
 
 .metric-card {
@@ -547,22 +729,60 @@ button:disabled { opacity: 0.6; cursor: not-allowed; }
   border: 1px solid var(--color-border);
   border-radius: var(--radius-md);
   overflow: hidden;
+  display: block;
+  overflow-x: auto;
+}
+
+.data-table thead,
+.data-table tbody,
+.data-table tr {
+  display: table;
+  width: 100%;
+  table-layout: fixed;
 }
 
 .data-table th,
 .data-table td {
-  padding: var(--space-md);
+  padding: var(--space-sm) var(--space-xs);
   text-align: left;
   border-bottom: 1px solid var(--color-border);
+  word-wrap: break-word;
+}
+
+@media (min-width: 640px) {
+  .data-table th,
+  .data-table td {
+    padding: var(--space-md);
+  }
 }
 
 .data-table th {
   background: var(--color-surface-2);
   font-weight: 600;
+  font-size: var(--fs-small);
+}
+
+@media (min-width: 640px) {
+  .data-table th {
+    font-size: var(--fs-body);
+  }
 }
 
 .data-table tr:last-child td {
   border-bottom: none;
+}
+
+/* Botões dentro de tabelas em mobile */
+@media (max-width: 639px) {
+  .data-table .btn {
+    padding: 0.4rem 0.6rem;
+    font-size: var(--fs-small);
+  }
+}
+
+/* Surface wrapper para tabelas - garante scroll horizontal sem margin negativa */
+.surface {
+  overflow-x: auto;
 }
 
 /* Formulários centralizados */
@@ -587,6 +807,28 @@ button:disabled { opacity: 0.6; cursor: not-allowed; }
 .form-group label {
   display: block;
   margin-bottom: var(--space-xs);
+}
+
+/* Ajuste de padding para formulários em mobile */
+@media (max-width: 640px) {
+  .form-group {
+    margin-bottom: var(--space-md);
+  }
+}
+
+/* Grid de formulário responsivo (usado em criar-post) */
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-lg);
+  margin-bottom: var(--space-lg);
+}
+
+@media (max-width: 640px) {
+  .form-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-md);
+  }
 }
 
 .checkbox-group {
