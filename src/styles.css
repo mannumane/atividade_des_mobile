@@ -10,11 +10,11 @@
   --color-bg: #0f172a;            /* slate-900 */
   --color-surface: #111827;       /* gray-900 */
   --color-surface-2: #1f2937;     /* gray-800 */
-  --color-border: #334155;        /* slate-700 */
-  --color-text: #e5e7eb;          /* gray-200 */
-  --color-text-muted: #94a3b8;    /* slate-400 */
-  --color-primary: #22c55e;       /* green-500 */
-  --color-primary-contrast: #001b07;
+  --color-border: #475569;        /* slate-600 - melhor contraste */
+  --color-text: #f1f5f9;          /* slate-100 - melhor contraste */
+  --color-text-muted: #cbd5e1;    /* slate-300 - melhor contraste */
+  --color-primary: #15803d;       /* green-700 - contraste ótimo WCAG AAA */
+  --color-primary-contrast: #ffffff;
 
   /* Tipografia */
   --font-sans: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
@@ -194,6 +194,44 @@ footer.site-footer {
   margin-top: auto;
 }
 
+.footer-content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+}
+
+.footer-chips {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: var(--space-md);
+  width: 100%;
+}
+
+.footer-chip {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-md) var(--space-lg);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border);
+  background: transparent;
+  color: var(--color-text);
+  font-size: var(--fs-body);
+  font-weight: 600;
+  min-height: 56px;
+}
+
+@media (max-width: 640px) {
+  .footer-chips {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-sm);
+  }
+  
+  .footer-chip {
+    padding: var(--space-sm) var(--space-md);
+  }
+}
+
 /* Ações do header (busca e botões) */
 .header-actions {
   display: flex;
@@ -321,6 +359,7 @@ main > .section:last-child {
 @media (min-width: 1024px) {
   .cards {
     grid-template-columns: repeat(4, 1fr);
+    
   }
 }
 
@@ -456,8 +495,15 @@ button:disabled { opacity: 0.6; cursor: not-allowed; }
   font-weight: 600;
 }
 
-.btn--primary { background: var(--color-primary); color: #fff; }
-.btn--primary:hover { filter: brightness(1.05); }
+.btn--primary { 
+  background: var(--color-primary); 
+  color: #ffffff;
+  font-weight: 600;
+}
+.btn--primary:hover { 
+  background: #15803d; /* green-700 - ainda mais escuro no hover */
+  filter: brightness(1.05); 
+}
 
 .btn--outline {
   background: transparent;
@@ -519,26 +565,34 @@ button:disabled { opacity: 0.6; cursor: not-allowed; }
 
 /* Chips */
 .chips { 
-  display: flex; 
-  flex-wrap: wrap; 
+  display: grid; 
+  place-items: center;
+  grid-template-columns: repeat(5, 1fr);
   gap: var(--space-md);
+  max-width: 100%;
+  margin: 0 auto;
 }
 
 @media (max-width: 640px) {
   .chips {
     gap: var(--space-sm);
-    justify-content: center;
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
 .chip {
   display: inline-flex;
   align-items: center;
-  padding: 0.5rem 0.9rem;
-  border-radius: 999px;
-  border: 1px solid var(--color-border);
+  justify-content: center;
+  padding: var(--space-md) var(--space-lg);
+  border-radius: var(--radius-md);
+  border: 1px dashed var(--color-border);
   background: transparent;
   color: var(--color-text);
+  font-size: var(--fs-body);
+  width: 100%;
+  min-height: 56px;
+  font-weight: 500;
 }
 
 /* Lista sem marcadores */

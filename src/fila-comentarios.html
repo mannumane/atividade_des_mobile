@@ -3,7 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Usuários - HABITAT</title>
+  <meta name="description" content="Fila de moderação de comentários - Aprove ou reprove comentários de usuários no HABIT." />
+  <title>Fila de comentários - HABITAT</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
@@ -15,11 +16,11 @@
 
   <header class="site-header">
     <div class="container inner">
-      <div class="brand">HABITAT</div>
+      <div class="brand">HABIT</div>
       <nav class="primary-nav" aria-label="Navegação principal">
         <ul>
           <li><a href="index.html">Início</a></li>
-          <li><a href="navegacao.html">Páginas</a></li>
+          <li><span style="pointer-events: none; cursor: default;">Páginas</span></li>
           <li><a href="destaques.html">Destaques</a></li>
           <li><a href="newsletter.html">Assinar</a></li>
           <li><a href="admin.html">Admin</a></li>
@@ -41,9 +42,9 @@
           <li><a href="categorias.html">Categorias</a></li>
           <li><a href="criar-post.html">Criar Post</a></li>
           <li><a href="escolhas-editor.html">Escolhas do Editor</a></li>
-          <li><a href="usuarios.html" aria-current="page">Usuários</a></li>
+          <li><a href="usuarios.html">Usuários</a></li>
           <li><a href="fila-revisao.html">Fila de revisão</a></li>
-          <li><a href="fila-comentarios.html">Fila de comentários</a></li>
+          <li><a href="fila-comentarios.html" aria-current="page">Fila de comentários</a></li>
         </ul>
       </aside>
 
@@ -68,58 +69,63 @@
         </div>
 
         <section class="section">
-          <h2>Usuários</h2>
-          <input type="search" placeholder="Buscar..." aria-label="Buscar usuários" style="margin-bottom: var(--space-lg)" />
+          <h2>Fila de comentários</h2>
+          <input type="search" placeholder="Buscar comentários..." aria-label="Buscar comentários" style="margin-bottom: var(--space-lg)" />
 
           <div class="surface">
             <table class="data-table">
               <thead>
                 <tr>
-                  <th>Usuário</th>
-                  <th>E-mail</th>
+                  <th>Título</th>
+                  <th>Autor</th>
                   <th>Status</th>
                   <th>Ações</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
-                  <td>Usuário #1</td>
-                  <td>email@teste.com</td>
-                  <td>Ativo</td>
+                  <td>Comentário #1</td>
+                  <td>Usuário 1</td>
+                  <td>Em revisão</td>
                   <td>
-                    <a class="btn btn--outline" href="#">Bloquear</a>
+                    <a class="btn btn--outline" href="#" style="margin-right: var(--space-sm)">Aprovar</a>
+                    <a class="btn btn--outline" href="#">Reprovar</a>
                   </td>
                 </tr>
                 <tr>
-                  <td>Usuário #2</td>
-                  <td>email@teste.com</td>
-                  <td>Ativo</td>
+                  <td>Comentário #2</td>
+                  <td>Usuário 2</td>
+                  <td>Em revisão</td>
                   <td>
-                    <a class="btn btn--outline" href="#">Bloquear</a>
+                    <a class="btn btn--outline" href="#" style="margin-right: var(--space-sm)">Aprovar</a>
+                    <a class="btn btn--outline" href="#">Reprovar</a>
                   </td>
                 </tr>
                 <tr>
-                  <td>Usuário #3</td>
-                  <td>email@teste.com</td>
-                  <td>Bloqueado</td>
+                  <td>Comentário #3</td>
+                  <td>Usuário 3</td>
+                  <td>Em revisão</td>
                   <td>
-                    <a class="btn btn--outline" href="#">Desbloquear</a>
+                    <a class="btn btn--outline" href="#" style="margin-right: var(--space-sm)">Aprovar</a>
+                    <a class="btn btn--outline" href="#">Reprovar</a>
                   </td>
                 </tr>
                 <tr>
-                  <td>Usuário #4</td>
-                  <td>email@teste.com</td>
-                  <td>Ativo</td>
+                  <td>Comentário #4</td>
+                  <td>Usuário 4</td>
+                  <td>Em revisão</td>
                   <td>
-                    <a class="btn btn--outline" href="#">Bloquear</a>
+                    <a class="btn btn--outline" href="#" style="margin-right: var(--space-sm)">Aprovar</a>
+                    <a class="btn btn--outline" href="#">Reprovar</a>
                   </td>
                 </tr>
                 <tr>
-                  <td>Usuário #5</td>
-                  <td>email@teste.com</td>
-                  <td>Ativo</td>
+                  <td>Comentário #5</td>
+                  <td>Usuário 5</td>
+                  <td>Em revisão</td>
                   <td>
-                    <a class="btn btn--outline" href="#">Bloquear</a>
+                    <a class="btn btn--outline" href="#" style="margin-right: var(--space-sm)">Aprovar</a>
+                    <a class="btn btn--outline" href="#">Reprovar</a>
                   </td>
                 </tr>
               </tbody>
@@ -129,20 +135,20 @@
       </div>
     </div>
 
-    <section class="section">
-      <div class="chips">
-        <span class="chip">Instagram</span>
-        <span class="chip">Work</span>
-        <span class="chip">Bags</span>
-        <span class="chip">Lamp</span>
-        <span class="chip">Books</span>
-      </div>
-    </section>
   </main>
 
   <footer class="site-footer">
     <div class="container">
-      <small>© 2025 Meu Site • Meu site</small>
+      <div class="footer-content">
+        <div class="footer-chips">
+          <span class="footer-chip">Instagram</span>
+          <span class="footer-chip">Work</span>
+          <span class="footer-chip">Bags</span>
+          <span class="footer-chip">Lamp</span>
+          <span class="footer-chip">Books</span>
+        </div>
+        <small>© 2025 Meu Site • Meu site</small>
+      </div>
     </div>
   </footer>
 </body>

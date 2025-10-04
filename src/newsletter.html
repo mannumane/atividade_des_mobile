@@ -3,7 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Entrar - HABITAT</title>
+  <meta name="description" content="Assine a newsletter do HABIT e receba os melhores conteúdos diretamente no seu e-mail." />
+  <title>Assine a newsletter - HABITAT</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
@@ -15,60 +16,54 @@
 
   <header class="site-header">
     <div class="container inner">
-      <div class="brand">HABITAT</div>
+      <div class="brand">HABIT</div>
       <nav class="primary-nav" aria-label="Navegação principal">
         <ul>
           <li><a href="index.html">Início</a></li>
-          <li><a href="navegacao.html">Páginas</a></li>
+          <li><span style="pointer-events: none; cursor: default;">Páginas</span></li>
           <li><a href="destaques.html">Destaques</a></li>
-          <li><a href="newsletter.html">Assinar</a></li>
+          <li><a href="newsletter.html" aria-current="page">Assinar</a></li>
           <li><a href="admin.html">Admin</a></li>
         </ul>
       </nav>
       <div class="header-actions">
         <input class="search-input" type="search" placeholder="Buscar..." aria-label="Buscar" />
         <a class="btn btn--outline" href="#buscar">Buscar</a>
-        <a class="btn btn--outline" href="login.html" aria-current="page">Entrar</a>
+        <a class="btn btn--outline" href="login.html">Entrar</a>
       </div>
     </div>
   </header>
 
   <main id="conteudo" class="container section">
     <div class="form-container">
-      <h1>Entrar</h1>
+      <h1>Assine a newsletter</h1>
       <form>
         <div class="form-group">
           <label for="email">E-mail</label>
           <input type="email" id="email" name="email" required />
         </div>
-        <div class="form-group">
-          <label for="senha">Senha</label>
-          <input type="password" id="senha" name="senha" required />
+        <div class="checkbox-group">
+          <input type="checkbox" id="termos" name="termos" required />
+          <label for="termos">Concordo em receber comunicações e li a política de privacidade.</label>
         </div>
-        <div class="cluster" style="margin-bottom: var(--space-lg);">
-          <button type="submit" class="btn btn--primary">Entrar</button>
-          <button type="button" class="btn btn--outline">Entrar com Google</button>
-        </div>
-        <p style="text-align: center; color: var(--color-text-muted);">
-          <a href="#esqueci">Esqueci a senha</a> • <a href="signup.html">Criar conta</a>
-        </p>
+        <button type="submit" class="btn btn--primary" style="width: 100%;">Assinar</button>
       </form>
     </div>
 
-    <section class="section">
-      <div class="chips">
-        <span class="chip">Instagram</span>
-        <span class="chip">Work</span>
-        <span class="chip">Bags</span>
-        <span class="chip">Lamp</span>
-        <span class="chip">Books</span>
-      </div>
-    </section>
   </main>
 
   <footer class="site-footer">
     <div class="container">
-      <small>© 2025 Meu Site • Meu site</small>
+      <div class="footer-content">
+        <div class="footer-chips">
+          <span class="footer-chip">Instagram</span>
+          <span class="footer-chip">Work</span>
+          <span class="footer-chip">Bags</span>
+          <span class="footer-chip">Lamp</span>
+          <span class="footer-chip">Books</span>
+        </div>
+        <small>© 2025 Meu Site • Meu site</small>
+      </div>
     </div>
   </footer>
 </body>
