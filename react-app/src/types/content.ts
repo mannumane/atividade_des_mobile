@@ -2,6 +2,7 @@ export interface CategoryView {
   readonly id: string;
   readonly name: string;
   readonly isPopular?: boolean;
+  readonly allCategories?: boolean;
 }
 
 export interface PostSummaryView {

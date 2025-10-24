@@ -16,14 +16,16 @@ export class Category {
   public constructor(
     public readonly id: string,
     public readonly name: string,
-    public readonly isPopular: boolean = false
+    public readonly isPopular: boolean = false,
+    public readonly allCategories: boolean = true
   ) {}
 
   public toView(): CategoryView {
     return {
       id: this.id,
       name: this.name,
-      isPopular: this.isPopular
+      isPopular: this.isPopular,
+      allCategories: this.allCategories
     };
   }
 }
@@ -32,8 +34,11 @@ export class CategoryCollection {
   public constructor(private readonly categories: readonly Category[]) {}
 
   public list(): CategoryView[] {
-    return this.categories.map((category) => category.toView());
+    return this.categories
+      .filter((category) => category.allCategories)
+      .map((category) => category.toView());
   }
+
 
   public listPopular(): CategoryView[] {
     return this.categories

@@ -14,7 +14,7 @@ import {
 
 class HomeContent {
   private readonly categories = new CategoryCollection([
-    new Category("negocios", "Negocios", true),
+    new Category("negocios", "Negocios"),
     new Category("techno", "Techno", true),
     new Category("produtividade", "Produtividade"),
     new Category("filmes", "Filmes"),
@@ -24,20 +24,20 @@ class HomeContent {
     new Category("ecommerce", "eCommerce"),
     new Category("alimentacao", "Alimentacao"),
     new Category("social", "Social"),
-    new Category("work", "Work", true),
-    new Category("books", "Books", true)
+    new Category("work", "Work", true, false),
+    new Category("books", "Books", true, false)
   ]);
 
   private readonly featuredPosts = new PostCollection([
     new PostSummary(
       "post-1",
       "Erros de Design que Todos Devem Evitar",
-      "31 Jul 2025 · Destaque · 3 min de leitura"
+      "31 Jul 2025 ï¿½ Destaque ï¿½ 3 min de leitura"
     ),
     new PostSummary(
       "post-2",
       "As Maiores Empresas por Receita",
-      "31 Jul 2025 · Destaque · 3 min de leitura"
+      "31 Jul 2025 ï¿½ Destaque ï¿½ 3 min de leitura"
     )
   ]);
 
