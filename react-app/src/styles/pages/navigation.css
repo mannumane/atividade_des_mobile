@@ -1,0 +1,7 @@
+.page-navigation .section:first-of-type {
+  padding-bottom: var(--space-lg);
+}
+
+.page-navigation .section:last-of-type {
+  padding-top: 0;
+}

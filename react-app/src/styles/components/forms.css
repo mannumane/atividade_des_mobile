@@ -1,0 +1,70 @@
+.search-input,
+input,
+select,
+textarea {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 0.75rem 1rem;
+  color: var(--color-text);
+  font: inherit;
+  width: 100%;
+}
+
+.search-input {
+  min-width: 220px;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  outline: 3px solid rgba(21, 128, 61, 0.45);
+  outline-offset: 2px;
+}
+
+.form-container {
+  max-width: 520px;
+  margin: 0 auto;
+  padding: var(--space-xl);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  display: grid;
+  gap: var(--space-lg);
+}
+
+.form-group {
+  display: grid;
+  gap: var(--space-xs);
+}
+
+.form-grid {
+  display: grid;
+  gap: var(--space-lg);
+}
+
+@media (min-width: 640px) {
+  .form-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.checkbox-group {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--space-sm);
+}
+
+.form-actions--start {
+  justify-content: flex-start;
+}
+
+.form-actions--center {
+  justify-content: center;
+}

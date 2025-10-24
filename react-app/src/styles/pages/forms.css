@@ -1,0 +1,14 @@
+.page-newsletter .form-container,
+.page-login .form-container,
+.page-signup .form-container {
+  margin-top: var(--space-xl);
+}
+
+.page-login .cluster {
+  justify-content: center;
+}
+
+.page-signup .form-container,
+.page-newsletter .form-container {
+  max-width: 480px;
+}

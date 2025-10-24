@@ -1,0 +1,1 @@
+export { CategoryTechnoPage } from "./CategoryTechnoPage";

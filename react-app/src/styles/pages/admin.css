@@ -1,0 +1,19 @@
+.page-admin .admin-layout,
+.page-categories .admin-layout,
+.page-create-post .admin-layout,
+.page-editor-picks .admin-layout,
+.page-users .admin-layout,
+.page-review-queue .admin-layout,
+.page-comments-queue .admin-layout {
+  margin-top: var(--space-xl);
+}
+
+.page-admin .metrics,
+.page-categories .metrics,
+.page-create-post .metrics,
+.page-editor-picks .metrics,
+.page-users .metrics,
+.page-review-queue .metrics,
+.page-comments-queue .metrics {
+  margin-bottom: var(--space-xl);
+}

@@ -1,0 +1,14 @@
+.page-profile .two-col {
+  align-items: start;
+}
+
+.page-profile .two-col > aside {
+  position: sticky;
+  top: var(--space-xl);
+}
+
+@media (max-width: 768px) {
+  .page-profile .two-col > aside {
+    position: static;
+  }
+}

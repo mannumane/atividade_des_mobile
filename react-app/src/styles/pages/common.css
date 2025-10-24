@@ -1,0 +1,12 @@
+.page {
+  width: 100%;
+  display: block;
+}
+
+.page > .section:first-of-type {
+  padding-top: var(--space-xl);
+}
+
+.page > .section:last-of-type {
+  padding-bottom: var(--space-xl);
+}
